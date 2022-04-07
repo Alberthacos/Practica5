@@ -5,11 +5,10 @@ use ieee.std_logic_arith.all;
 
 ENTITY MotorPAP IS PORT(
 sw : IN std_logic_vector (1 downto 0); --interruptores
-
 leds, puerto : OUT std_logic_vector (1 to 4)); --leds testigos y salida al puerto para el motor
 END MotorPAP;
 
-ARCHITECTURE motor OF PAP IS
+ARCHITECTURE motor OF MotorPAP IS
 begin
 process (sw) begin
 case sw is

@@ -21,8 +21,76 @@
 
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="MotorPAP.xise"/>
 
-  <files xmlns="http://www.xilinx.com/XMLSchema"/>
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="MotorPAP.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="MotorPAP.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="MotorPAP.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="MotorPAP.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="MotorPAP.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="MotorPAP.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="MotorPAP.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="MotorPAP.xst"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="MotorPAP_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="PAP.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="PAP.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="PAP.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="PAP.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="PAP.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="PAP_summary.html"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="PAP_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1649375387" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1649375387">
+      <status xil_pn:value="SuccessfullyRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1649375565" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="4426277639355583111" xil_pn:start_ts="1649375565">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1649375565" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="4711329301896414832" xil_pn:start_ts="1649375565">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1649375387" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1649375387">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1649375565" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="7206691915543580361" xil_pn:start_ts="1649375565">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1649375387" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="250970745411629038" xil_pn:start_ts="1649375387">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1649375565" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-4484612925149393542" xil_pn:start_ts="1649375565">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1649375574" xil_pn:in_ck="5093437280788409409" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="3424343190879826505" xil_pn:start_ts="1649375565">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="MotorPAP.lso"/>
+      <outfile xil_pn:name="MotorPAP.ngc"/>
+      <outfile xil_pn:name="MotorPAP.ngr"/>
+      <outfile xil_pn:name="MotorPAP.prj"/>
+      <outfile xil_pn:name="MotorPAP.stx"/>
+      <outfile xil_pn:name="MotorPAP.syr"/>
+      <outfile xil_pn:name="MotorPAP.xst"/>
+      <outfile xil_pn:name="MotorPAP_xst.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1649375541" xil_pn:in_ck="6562747339578262697" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-6395441177211441331" xil_pn:start_ts="1649375541">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+    </transform>
+  </transforms>
 
 </generated_project>

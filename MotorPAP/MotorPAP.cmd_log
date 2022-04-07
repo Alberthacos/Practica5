@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 

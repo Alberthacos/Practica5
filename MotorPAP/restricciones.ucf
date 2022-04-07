@@ -1,0 +1,12 @@
+NET"SW(1)" LOC="M1";
+NET"SW(0)" LOC="p2";
+
+NET"leds(1)" LOC="N1";
+NET"leds(2)" LOC="R2";
+NET"leds(3)" LOC="R5";
+NET"leds(4)" LOC="N8";
+
+NET"puerto(1)" LOC="D3";
+NET"puerto(2)" LOC="D5";
+NET"puerto(3)" LOC="C6";
+NET"puerto(4)" LOC="F9";
