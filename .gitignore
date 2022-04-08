@@ -1,0 +1,30 @@
+*.bgn
+*.bld
+*.cmd_log
+ *.lso
+ *.ncd
+*.ngc
+*.ngd
+*.ngr
+*.pad 
+*.par 
+*.pcf
+*.prj
+*.ptwx
+*.stx 
+*.syr 
+*.twr 
+*.twx 
+*.unroutes 
+*.ut 
+*.xpi 
+*.xpst 
+*.xwbt 
+*.ncd 
+*.map 
+*.mrp 
+*.ncd 
+*.ngm 
+*.xrpt
+*.xml
+*.html
