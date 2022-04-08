@@ -31,8 +31,6 @@
 *.html
 *.gise
 .Xil/
-_xmsgs/
-iseconfig/
 
 
 
@@ -106,3 +104,5 @@ xlnx_auto_0_xdb/
 xst/
 _ngo/
 _xmsgs/
+*.xise
+
