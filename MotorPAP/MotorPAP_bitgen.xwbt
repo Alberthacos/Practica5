@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=C:\Users\Albert\Documents\CircuitosLogicos\Practica_5\MotorPAP\MotorPAP.ncd
-OUTFILE=C:\Users\Albert\Documents\CircuitosLogicos\Practica_5\MotorPAP\MotorPAP.bit
-FAMILY=Spartan6
-PART=xc6slx9-3ftg256
-WORKINGDIR=C:\Users\Albert\Documents\CircuitosLogicos\Practica_5\MotorPAP
-LICENSE=WebPack
-USER_INFO=212421826_0_0_754
