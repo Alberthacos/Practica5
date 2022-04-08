@@ -1,1 +1,74 @@
 xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc restricciones.ucf -p xc6slx9-ftg256-3 MotorPAP.ngc MotorPAP.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MotorPAP_map.ncd MotorPAP.ngd MotorPAP.pcf 
+par -w -intstyle ise -ol high -mt off MotorPAP_map.ncd MotorPAP.ncd MotorPAP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MotorPAP.twx MotorPAP.ncd -o MotorPAP.twr MotorPAP.pcf -ucf restricciones.ucf 
+bitgen -intstyle ise -f MotorPAP.ut MotorPAP.ncd 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc restricciones.ucf -p xc6slx9-ftg256-3 MotorPAP.ngc MotorPAP.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MotorPAP_map.ncd MotorPAP.ngd MotorPAP.pcf 
+par -w -intstyle ise -ol high -mt off MotorPAP_map.ncd MotorPAP.ncd MotorPAP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MotorPAP.twx MotorPAP.ncd -o MotorPAP.twr MotorPAP.pcf -ucf restricciones.ucf 
+bitgen -intstyle ise -f MotorPAP.ut MotorPAP.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc restricciones.ucf -p xc6slx9-ftg256-3 MotorPAP.ngc MotorPAP.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MotorPAP_map.ncd MotorPAP.ngd MotorPAP.pcf 
+par -w -intstyle ise -ol high -mt off MotorPAP_map.ncd MotorPAP.ncd MotorPAP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MotorPAP.twx MotorPAP.ncd -o MotorPAP.twr MotorPAP.pcf -ucf restricciones.ucf 
+bitgen -intstyle ise -f MotorPAP.ut MotorPAP.ncd 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc restricciones.ucf -p xc6slx9-ftg256-3 MotorPAP.ngc MotorPAP.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MotorPAP_map.ncd MotorPAP.ngd MotorPAP.pcf 
+par -w -intstyle ise -ol high -mt off MotorPAP_map.ncd MotorPAP.ncd MotorPAP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MotorPAP.twx MotorPAP.ncd -o MotorPAP.twr MotorPAP.pcf -ucf restricciones.ucf 
+bitgen -intstyle ise -f MotorPAP.ut MotorPAP.ncd 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc restricciones.ucf -p xc6slx9-ftg256-3 MotorPAP.ngc MotorPAP.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MotorPAP_map.ncd MotorPAP.ngd MotorPAP.pcf 
+par -w -intstyle ise -ol high -mt off MotorPAP_map.ncd MotorPAP.ncd MotorPAP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MotorPAP.twx MotorPAP.ncd -o MotorPAP.twr MotorPAP.pcf -ucf restricciones.ucf 
+bitgen -intstyle ise -f MotorPAP.ut MotorPAP.ncd 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc restricciones.ucf -p xc6slx9-ftg256-3 MotorPAP.ngc MotorPAP.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MotorPAP_map.ncd MotorPAP.ngd MotorPAP.pcf 
+par -w -intstyle ise -ol high -mt off MotorPAP_map.ncd MotorPAP.ncd MotorPAP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MotorPAP.twx MotorPAP.ncd -o MotorPAP.twr MotorPAP.pcf -ucf restricciones.ucf 
+bitgen -intstyle ise -f MotorPAP.ut MotorPAP.ncd 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc restricciones.ucf -p xc6slx9-ftg256-3 MotorPAP.ngc MotorPAP.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MotorPAP_map.ncd MotorPAP.ngd MotorPAP.pcf 
+par -w -intstyle ise -ol high -mt off MotorPAP_map.ncd MotorPAP.ncd MotorPAP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MotorPAP.twx MotorPAP.ncd -o MotorPAP.twr MotorPAP.pcf -ucf restricciones.ucf 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc restricciones.ucf -p xc6slx9-ftg256-3 MotorPAP.ngc MotorPAP.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MotorPAP_map.ncd MotorPAP.ngd MotorPAP.pcf 
+par -w -intstyle ise -ol high -mt off MotorPAP_map.ncd MotorPAP.ncd MotorPAP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MotorPAP.twx MotorPAP.ncd -o MotorPAP.twr MotorPAP.pcf -ucf restricciones.ucf 
+bitgen -intstyle ise -f MotorPAP.ut MotorPAP.ncd 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc restricciones.ucf -p xc6slx9-ftg256-3 MotorPAP.ngc MotorPAP.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MotorPAP_map.ncd MotorPAP.ngd MotorPAP.pcf 
+par -w -intstyle ise -ol high -mt off MotorPAP_map.ncd MotorPAP.ncd MotorPAP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MotorPAP.twx MotorPAP.ncd -o MotorPAP.twr MotorPAP.pcf -ucf restricciones.ucf 
+bitgen -intstyle ise -f MotorPAP.ut MotorPAP.ncd 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc restricciones.ucf -p xc6slx9-ftg256-3 MotorPAP.ngc MotorPAP.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MotorPAP_map.ncd MotorPAP.ngd MotorPAP.pcf 
+par -w -intstyle ise -ol high -mt off MotorPAP_map.ncd MotorPAP.ncd MotorPAP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MotorPAP.twx MotorPAP.ncd -o MotorPAP.twr MotorPAP.pcf -ucf restricciones.ucf 
+bitgen -intstyle ise -f MotorPAP.ut MotorPAP.ncd 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc restricciones.ucf -p xc6slx9-ftg256-3 MotorPAP.ngc MotorPAP.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MotorPAP_map.ncd MotorPAP.ngd MotorPAP.pcf 
+par -w -intstyle ise -ol high -mt off MotorPAP_map.ncd MotorPAP.ncd MotorPAP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MotorPAP.twx MotorPAP.ncd -o MotorPAP.twr MotorPAP.pcf -ucf restricciones.ucf 
+bitgen -intstyle ise -f MotorPAP.ut MotorPAP.ncd 
+xst -intstyle ise -ifn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.xst" -ofn "C:/Users/Albert/Documents/CircuitosLogicos/Practica_5/MotorPAP/MotorPAP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc restricciones.ucf -p xc6slx9-ftg256-3 MotorPAP.ngc MotorPAP.ngd  
+map -intstyle ise -p xc6slx9-ftg256-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o MotorPAP_map.ncd MotorPAP.ngd MotorPAP.pcf 
+par -w -intstyle ise -ol high -mt off MotorPAP_map.ncd MotorPAP.ncd MotorPAP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml MotorPAP.twx MotorPAP.ncd -o MotorPAP.twr MotorPAP.pcf -ucf restricciones.ucf 
+bitgen -intstyle ise -f MotorPAP.ut MotorPAP.ncd 

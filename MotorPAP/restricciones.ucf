@@ -1,5 +1,7 @@
-NET"SW(1)" LOC="M1";
-NET"SW(0)" LOC="p2";
+NET"CLK" LOC="E7";
+
+#NET"SW(1)" LOC="M1";
+#NET"SW(0)" LOC="p2";
 
 NET"leds(1)" LOC="N1";
 NET"leds(2)" LOC="R2";

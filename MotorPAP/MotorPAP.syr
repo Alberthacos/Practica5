@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.17 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.18 secs
  
 --> Reading design: MotorPAP.prj
 
@@ -121,9 +121,18 @@ Elaborating entity <MotorPAP> (architecture <motor>) from library <work>.
 
 Synthesizing Unit <MotorPAP>.
     Related source file is "C:\Users\Albert\Documents\CircuitosLogicos\Practica_5\MotorPAP\Motor_PAP.vhd".
-    Found 4x4-bit Read Only RAM for signal <leds>
+    Register <puerto> equivalent to <leds> has been removed
+    Found 20-bit register for signal <conta_1250us>.
+    Found 2-bit register for signal <sw>.
+    Found 4-bit register for signal <leds>.
+    Found 1-bit register for signal <SAL_400Hz>.
+    Found 20-bit adder for signal <conta_1250us[19]_GND_5_o_add_1_OUT> created at line 29.
+    Found 2-bit adder for signal <sw[1]_GND_5_o_add_4_OUT> created at line 34.
+    Found 4x4-bit Read Only RAM for signal <sw[1]_GND_5_o_wide_mux_5_OUT>
     Summary:
 	inferred   1 RAM(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  27 D-type flip-flop(s).
 Unit <MotorPAP> synthesized.
 
 =========================================================================
@@ -132,6 +141,14 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  4x4-bit single-port Read Only RAM                     : 1
+# Adders/Subtractors                                   : 2
+ 2-bit adder                                           : 1
+ 20-bit adder                                          : 1
+# Registers                                            : 4
+ 1-bit register                                        : 1
+ 2-bit register                                        : 1
+ 20-bit register                                       : 1
+ 4-bit register                                        : 1
 
 =========================================================================
 
@@ -141,7 +158,9 @@ Macro Statistics
 
 
 Synthesizing (advanced) Unit <MotorPAP>.
-INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_leds> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+The following registers are absorbed into counter <conta_1250us>: 1 register on signal <conta_1250us>.
+The following registers are absorbed into counter <sw>: 1 register on signal <sw>.
+INFO:Xst:3231 - The small RAM <Mram_sw[1]_GND_5_o_wide_mux_5_OUT> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
@@ -150,7 +169,7 @@ INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_leds> will be implemented on LUTs ei
     |     weA            | connected to signal <GND>           | high     |
     |     addrA          | connected to signal <sw>            |          |
     |     diA            | connected to signal <GND>           |          |
-    |     doA            | connected to signal <puerto>        |          |
+    |     doA            | connected to internal node          |          |
     -----------------------------------------------------------------------
 Unit <MotorPAP> synthesized (advanced).
 
@@ -160,6 +179,11 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  4x4-bit single-port distributed Read Only RAM         : 1
+# Counters                                             : 2
+ 2-bit up counter                                      : 1
+ 20-bit up counter                                     : 1
+# Registers                                            : 5
+ Flip-Flops                                            : 5
 
 =========================================================================
 
@@ -172,13 +196,18 @@ Optimizing unit <MotorPAP> ...
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block MotorPAP, actual ratio is 0.
+FlipFlop conta_1250us_16 has been replicated 1 time(s)
+FlipFlop conta_1250us_17 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
 =========================================================================
 Final Register Report
 
-Found no macro
+Macro Statistics
+# Registers                                            : 29
+ Flip-Flops                                            : 29
+
 =========================================================================
 
 =========================================================================
@@ -200,10 +229,20 @@ Top Level Output File Name         : MotorPAP.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 4
-#      LUT2                        : 4
-# IO Buffers                       : 10
-#      IBUF                        : 2
+# BELS                             : 95
+#      GND                         : 1
+#      INV                         : 2
+#      LUT1                        : 19
+#      LUT2                        : 5
+#      LUT6                        : 28
+#      MUXCY                       : 19
+#      VCC                         : 1
+#      XORCY                       : 20
+# FlipFlops/Latches                : 29
+#      FD                          : 29
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 8
 #      OBUF                        : 8
 
 Device utilization summary:
@@ -213,21 +252,23 @@ Selected Device : 6slx9ftg256-3
 
 
 Slice Logic Utilization: 
- Number of Slice LUTs:                    4  out of   5720     0%  
-    Number used as Logic:                 4  out of   5720     0%  
+ Number of Slice Registers:              29  out of  11440     0%  
+ Number of Slice LUTs:                   54  out of   5720     0%  
+    Number used as Logic:                54  out of   5720     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:      4
-   Number with an unused Flip Flop:       4  out of      4   100%  
-   Number with an unused LUT:             0  out of      4     0%  
-   Number of fully used LUT-FF pairs:     0  out of      4     0%  
-   Number of unique control sets:         0
+ Number of LUT Flip Flop pairs used:     56
+   Number with an unused Flip Flop:      27  out of     56    48%  
+   Number with an unused LUT:             2  out of     56     3%  
+   Number of fully used LUT-FF pairs:    27  out of     56    48%  
+   Number of unique control sets:         2
 
 IO Utilization: 
- Number of IOs:                          10
- Number of bonded IOBs:                  10  out of    186     5%  
+ Number of IOs:                           9
+ Number of bonded IOBs:                   9  out of    186     4%  
 
 Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
 
 ---------------------------
 Partition Resource Summary:
@@ -247,7 +288,13 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
-No clock signals found in this design
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+SAL_400Hz                          | NONE(leds_4)           | 6     |
+CLK                                | BUFGP                  | 23    |
+-----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
@@ -257,44 +304,105 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: No path found
+   Minimum period: 3.084ns (Maximum Frequency: 324.302MHz)
    Minimum input arrival time before clock: No path found
-   Maximum output required time after clock: No path found
-   Maximum combinational path delay: 5.400ns
+   Maximum output required time after clock: 3.634ns
+   Maximum combinational path delay: No path found
 
 Timing Details:
 ---------------
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default path analysis
-  Total number of paths / destination ports: 16 / 8
+Timing constraint: Default period analysis for Clock 'SAL_400Hz'
+  Clock period: 2.078ns (frequency: 481.325MHz)
+  Total number of paths / destination ports: 11 / 6
 -------------------------------------------------------------------------
-Delay:               5.400ns (Levels of Logic = 3)
-  Source:            sw<0> (PAD)
-  Destination:       leds<1> (PAD)
+Delay:               2.078ns (Levels of Logic = 1)
+  Source:            sw_0 (FF)
+  Destination:       sw_0 (FF)
+  Source Clock:      SAL_400Hz rising
+  Destination Clock: SAL_400Hz rising
 
-  Data Path: sw<0> to leds<1>
+  Data Path: sw_0 to sw_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             4   1.222   0.788  sw_0_IBUF (sw_0_IBUF)
-     LUT2:I0->O            2   0.203   0.616  Mram_leds12 (Mram_leds)
-     OBUF:I->O                 2.571          leds_4_OBUF (leds<4>)
+     FD:C->Q               6   0.447   0.744  sw_0 (sw_0)
+     INV:I->O              1   0.206   0.579  Mcount_sw_xor<0>11_INV_0 (Result<0>)
+     FD:D                      0.102          sw_0
     ----------------------------------------
-    Total                      5.400ns (3.996ns logic, 1.404ns route)
-                                       (74.0% logic, 26.0% route)
+    Total                      2.078ns (0.755ns logic, 1.323ns route)
+                                       (36.3% logic, 63.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK'
+  Clock period: 3.084ns (frequency: 324.302MHz)
+  Total number of paths / destination ports: 706 / 23
+-------------------------------------------------------------------------
+Delay:               3.084ns (Levels of Logic = 2)
+  Source:            conta_1250us_10 (FF)
+  Destination:       SAL_400Hz (FF)
+  Source Clock:      CLK rising
+  Destination Clock: CLK rising
+
+  Data Path: conta_1250us_10 to SAL_400Hz
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               3   0.447   1.015  conta_1250us_10 (conta_1250us_10)
+     LUT6:I0->O           11   0.203   1.111  PWR_5_o_conta_1250us[19]_equal_1_o<19>1 (PWR_5_o_conta_1250us[19]_equal_1_o<19>)
+     LUT6:I3->O            1   0.205   0.000  SAL_400Hz_rstpot (SAL_400Hz_rstpot)
+     FD:D                      0.102          SAL_400Hz
+    ----------------------------------------
+    Total                      3.084ns (0.957ns logic, 2.127ns route)
+                                       (31.0% logic, 69.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'SAL_400Hz'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              3.634ns (Levels of Logic = 1)
+  Source:            leds_1 (FF)
+  Destination:       leds<1> (PAD)
+  Source Clock:      SAL_400Hz rising
+
+  Data Path: leds_1 to leds<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.447   0.616  leds_1 (leds_1)
+     OBUF:I->O                 2.571          leds_1_OBUF (leds<1>)
+    ----------------------------------------
+    Total                      3.634ns (3.018ns logic, 0.616ns route)
+                                       (83.0% logic, 17.0% route)
 
 =========================================================================
 
 Cross Clock Domains Report:
 --------------------------
 
+Clock to Setup on destination clock CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |    3.084|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SAL_400Hz
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+SAL_400Hz      |    2.078|         |         |         |
+---------------+---------+---------+---------+---------+
+
 =========================================================================
 
 
-Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 5.93 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 10.02 secs
  
 --> 
 
@@ -302,5 +410,5 @@ Total memory usage is 4486228 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
-Number of infos    :    1 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
 
