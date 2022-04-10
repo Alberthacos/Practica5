@@ -51,6 +51,7 @@ begin
                 if (curState = add) then
                     if EncOut < "10011" then
                         EncOut <= EncOut+1;
+                        conter <='1';
                     else
                         EncOut <= "00000";
                     end if;
@@ -58,6 +59,7 @@ begin
                 elsif (curState = sub) then
                     if EncOut > "00000" then
                         EncOut <= EncOut-1;
+                        conter <='0';
                     else
                         EncOut <= "10011";
                     end if;
@@ -92,7 +94,7 @@ case curState is
     -- start of right cycle
     --R1
     when R1 =>
-    conter <='1';
+  --  conter <='1';
         LED<= "01";
         if B='1' then
             nextState <= idle;
@@ -104,7 +106,7 @@ case curState is
 
     --R2
     when R2 =>
-    conter <='1';
+   -- conter <='1';
         LED<= "01";
         if A ='1' then
             nextState <= R1;
@@ -116,7 +118,6 @@ case curState is
 
     --R3
     when R3 =>
-    conter <='1';
             LED<= "01";
         if B ='0' then
             nextState <= R2;
@@ -134,7 +135,7 @@ case curState is
         -- start of left cycle
         --L1
     when L1 =>
-    conter <='0';
+ --   conter <='0';
             LED<= "10";
         if A ='1' then
             nextState <= idle;
@@ -146,7 +147,7 @@ case curState is
     
         --L2
     when L2 =>
-    conter <='0';
+ --   conter <='0';
             LED<= "10";
         if B ='1' then
             nextState <= L1;
@@ -158,7 +159,7 @@ case curState is
     
          --L3
     when L3 =>
-    conter <='0';
+  --  conter <='0';
         LED<= "10";
         if A ='0' then
             nextState <= L2;
