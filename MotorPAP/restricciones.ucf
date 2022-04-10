@@ -12,3 +12,6 @@ NET"puerto(1)" LOC="D3";
 NET"puerto(2)" LOC="D5";
 NET"puerto(3)" LOC="C6";
 NET"puerto(4)" LOC="F9";
+
+#NET"otro_led" LOC="P12";
+
