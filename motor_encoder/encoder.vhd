@@ -31,8 +31,8 @@ architecture Behavioral of Encoder is
 type stateType is ( idle, R1, R2, R3, L1, L2, L3, add, sub);
 signal curState, nextState: stateType;
 signal conter: integer range 1 to 3;
-signal ciclo: integer range 0 to 10:=0;
-signal conta_1250us: integer range 1 to 625000:=1; -- pulso1 de 1250us@400Hz (0.25ms) 62500
+signal ciclo: integer range 0 to 25:=0;
+signal conta_1250us: integer range 1 to 62000:=1; -- pulso1 de 1250us@400Hz (0.25ms) 62500
 signal SAL_400Hz: STD_LOGIC; -- reloj de 400Hz
 signal sw: std_logic_vector(3 downto 0):="0000";
 begin
@@ -182,7 +182,7 @@ end process;
 puerto: process(CLK,conter) begin
     
         if rising_edge(CLK) then
-            if (conta_1250us = 62500) then --cuenta 1250us (50MHz=62500)
+            if (conta_1250us = 60000) then --cuenta 1250us (50MHz=62500)
                     -- if (conta_1250us = 125000) then --cuenta 1250us (100MHz=125000)
                     SAL_400Hz <= NOT(SAL_400Hz); --genera un barrido de 2.5ms
                     conta_1250us <= 1;
@@ -192,38 +192,26 @@ puerto: process(CLK,conter) begin
         end if;
 
     if conter = 1 then 
-            IF SAL_400Hz'EVENT and SAL_400Hz='1' and sw /= "0101" and ciclo /=10 THEN sw <= sw + '1';
-                    case sw is
-                    when "0000" => leds <= "1100"; puertos <= "1100";
-                    when "0001" => leds <= "0110"; puertos <= "0110";
-                    when "0010" => leds <= "0011"; puertos <= "0011";
-                    when "0011" => leds <= "1001"; puertos <= "1001";
-
-               --     when "0100" => leds <= "1100"; puertos <= "1100";
-               --     when "0101" => leds <= "0110"; puertos <= "0110";
-                --    when "0110" => leds <= "0011"; puertos <= "0011";
-                --    when "0111" => leds <= "1001"; puertos <= "1001";
-                    when others => leds <= "0000"; puertos <= "0000"; ciclo <= ciclo+1; sw <="0000";
-                    end case;
-                   -- if sw = "100" then ciclo <= ciclo+1; sw <="0000"; end if;
+        IF SAL_400Hz'EVENT and SAL_400Hz='1' and sw /= "0101" and ciclo /=17 THEN sw <= sw + '1';
+			  case sw is
+			  when "0000" => leds <= "1100"; puertos <= "1100";
+			  when "0001" => leds <= "0110"; puertos <= "0110";
+			  when "0010" => leds <= "0011"; puertos <= "0011";
+			  when "0011" => leds <= "1001"; puertos <= "1001";
+			  when others => leds <= "0000"; puertos <= "0000"; ciclo <= ciclo+1; sw <="0000";
+			  end case;
         end if;
-
     elsif conter = 2 then 
-        IF SAL_400Hz'EVENT and SAL_400Hz='1' and sw /= "0101" and ciclo /=10  THEN sw <= sw + '1';
+        IF SAL_400Hz'EVENT and SAL_400Hz='1' and sw /= "0101" and ciclo /=17  THEN sw <= sw + '1';
             case sw is
             when "0000" => leds <= "1001"; puertos <= "1001";--1001
             when "0001" => leds <= "0011"; puertos <= "0011";--0011
             when "0010" => leds <= "0110"; puertos <= "0110";--0110
             when "0011" => leds <= "1100"; puertos <= "1100";--0110
-         --   when "0100" => leds <= "1001"; puertos <= "1001";--1001
-          --  when "0101" => leds <= "0011"; puertos <= "0011";--0011
-          --  when "0110" => leds <= "0110"; puertos <= "0110";--0110
-           -- when "0111" => leds <= "1100"; puertos <= "1100";--1100
             when others => leds <= "0000"; puertos <= "0000"; ciclo <= ciclo+1; sw <= "0000";--1100 
             end case;
-           -- if sw = "100" then ciclo <= ciclo+1; sw <= "0000"; end if;
         end if;
-        else sw <="0000"; ciclo <=0; leds<="0000"; puertos<="0000";
+     else sw <="0000"; ciclo <=0; leds<="0000"; puertos<="0000";
     end if;
 
     end process;
