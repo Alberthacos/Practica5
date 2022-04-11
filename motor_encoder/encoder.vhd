@@ -53,29 +53,20 @@ begin
                 if (curState = add) then
                     if EncOut < "10011" then
                         EncOut <= EncOut+1;
-                     --  conter <=1;
                     else
                         EncOut <= "00000";
-                    --    conter <=3;
-                     --   conter <=1;
-                      
+  
                     end if;
 
                 elsif (curState = sub) then
                     if EncOut > "00000" then
                         EncOut <= EncOut-1;
-                     --  conter <=2;
                     else
                         EncOut <= "10011";
-                 --       conter <=3;                      
-                        -- conter <=2;
-                       
                     end if;
 
                 else
                     EncOut <= EncOut;
-                  --  conter <= 3;
-                   
                 end if;
 
             else
@@ -84,7 +75,6 @@ begin
         curState <= nextState;
     end if;
 end process;
-
     -----FSM process
 next_state: process (curState, A, B)
 begin
@@ -194,8 +184,6 @@ puerto: process(CLK,conter) begin
                     conta_1250us <= conta_1250us + 1;
             end if;
         end if;
-
-    
  
 IF SAL_400Hz'EVENT and SAL_400Hz='1'  then
     if (conter = 1 or sd1= '1') and sd2 ='0' then
