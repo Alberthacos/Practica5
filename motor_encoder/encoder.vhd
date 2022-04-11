@@ -30,13 +30,15 @@ architecture Behavioral of Encoder is
 -- FSM states and signals
 type stateType is ( idle, R1, R2, R3, L1, L2, L3, add, sub);
 signal curState, nextState: stateType;
-signal conter: integer range 1 to 3;
-signal ciclo1,ciclo2: integer range 0 to 10:=0;
-signal conta_1250us: integer range 1 to 60000:=1; -- pulso1 de 1250us@400Hz (0.25ms) 62500
+signal conter: integer range 1 to 3:=3;
+signal ciclo1,ciclo2: integer range 0 to 25:=0;
+signal conta_1250us: integer range 1 to 55000:=1; -- pulso1 de 1250us@400Hz (0.25ms) 62500
 signal SAL_400Hz: STD_LOGIC; -- reloj de 400Hz
 signal sw1,sw2: std_logic_vector(3 downto 0):="0000";
 signal sd1,sd2: std_logic:='0';
+signal limite: integer:=15;
 begin
+    limite<=15; --lmite de pasos (por 4)
 
 --clk and button
 clock: process (clk, BTN)
@@ -104,7 +106,7 @@ case curState is
         end if;
 
     --R2
-    when R2 =>-- conter<=3; conter <=1;
+    when R2 => conter<=3; conter <=1;
         LED<= "01";
         if A ='1' then
             nextState <= R1;
@@ -176,7 +178,7 @@ end process;
 puerto: process(CLK,conter) begin
     
         if rising_edge(CLK) then
-            if (conta_1250us = 60000) then --cuenta 1250us (50MHz=62500)
+            if (conta_1250us = 55000) then --cuenta 1250us (50MHz=62500)
                     -- if (conta_1250us = 125000) then --cuenta 1250us (100MHz=125000)
                     SAL_400Hz <= NOT(SAL_400Hz); --genera un barrido de 2.5ms
                     conta_1250us <= 1;
@@ -187,29 +189,28 @@ puerto: process(CLK,conter) begin
  
 IF SAL_400Hz'EVENT and SAL_400Hz='1'  then
     if (conter = 1 or sd1= '1') and sd2 ='0' then
-        if sw1 /= "0100" and ciclo1 /=10 THEN sw1 <= sw1 + '1';
+        if sw1 /= "0100" and ciclo1 /=limite THEN sw1 <= sw1 + '1';
                 case sw1 is
                 when "0000" => leds <= "1100"; puertos <= "1100"; sd1 <='1';
                 when "0001" => leds <= "0110"; puertos <= "0110"; sd1 <='1';
                 when "0010" => leds <= "0011"; puertos <= "0011"; sd1 <='1';
                 when others => leds <= "1001"; puertos <= "1001"; sd1 <='1'; ciclo1 <= ciclo1+1; sw1 <="0000"; --leds <= "0000"; puertos <= "0000"; 
                 end case;
-               
         end if;
 
     elsif (conter = 2 or sd2 ='1') and sd1 ='0'then 
-        if sw2 /= "0100" and ciclo2 /=10  THEN sw2 <= sw2 + '1';
+        if sw2 /= "0100" and ciclo2 /=limite  THEN sw2 <= sw2 + '1';
                 case sw2 is
                 when "0000" => leds <= "1001"; puertos <= "1001"; sd2 <='1';--1001
                 when "0001" => leds <= "0011"; puertos <= "0011"; sd2 <='1';--0011
                 when "0010" => leds <= "0110"; puertos <= "0110"; sd2 <='1';--0110
                 when others => leds <= "1100"; puertos <= "1100"; sd2 <='1'; ciclo2 <= ciclo2+1; sw2 <= "0000"; sd2 <='1'; --leds <= "0000"; puertos <= "0000"; --1100 
                 end case;
-                
         end if;
     else sw1 <="0000"; ciclo1 <=0; sw2 <="0000"; ciclo2 <=0;-- leds<="0000"; puertos<="0000";
     end if;
-    if (ciclo1 = 10 or ciclo2 = 10) then leds <= "0000"; puertos <= "0000"; sd1 <='0'; sd2 <='0'; end if;
+
+    if (ciclo1 = limite or ciclo2 = limite) then leds <= "0000"; puertos <= "0000"; sd1 <='0'; sd2 <='0'; end if;
     
 end if;
 
