@@ -1,0 +1,18 @@
+NET"CLK_i" LOC="E7";
+
+NET"D14_i" LOC="D3";
+NET"D15_i" LOC="D5";
+
+NET"B16_i" LOC="P2";
+
+NET"RSTn_i" LOC="M1";
+
+NET"LED_o(0)" LOC="N1";
+NET"LED_o(1)" LOC="R2";
+NET"LED_o(2)" LOC="R5";
+NET"LED_o(3)" LOC="N8";
+NET"LED_o(4)" LOC="P11";
+NET"LED_o(5)" LOC="P6";
+NET"LED_o(6)" LOC="P8";
+NET"LED_o(7)" LOC="P12";
+

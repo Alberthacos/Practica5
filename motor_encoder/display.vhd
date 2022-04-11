@@ -35,24 +35,24 @@ anode<="1111";
 --refresh each digit
 elsif clk'event and clk = '1' then
 -- 0ms refersh digit 0
-if sclk = "000000000000000000" then
-anode<="1110";
-segOut <= seg;
-sclk <= sclk +1;
--- 1ms refresh digit 1
-elsif sclk = "011000011010100000" then
--- display a 1 on the tenth digit if the number is greater than 9
-if DispVal > "01001" then
-segOut <= "1111001";
-anode<="1101";
-end if;
-sclk <= sclk +1;
--- 2ms
-elsif sclk = "110000110101000000" then
-sclk <= "000000000000000000";
-else
-sclk <= sclk +1;
-end if;
+    if sclk = "000000000000000000" then
+        anode<="1110";
+        segOut <= seg;
+        sclk <= sclk +1;
+        -- 1ms refresh digit 1
+    elsif sclk = "011000011010100000" then
+    -- display a 1 on the tenth digit if the number is greater than 9
+        if DispVal > "01001" then
+        segOut <= "1111001";
+        anode<="1101";
+        end if;
+        sclk <= sclk +1;
+    -- 2ms
+    elsif sclk = "110000110101000000" then
+        sclk <= "000000000000000000";
+    else
+        sclk <= sclk +1;
+    end if;
 end if;
 end process;
 

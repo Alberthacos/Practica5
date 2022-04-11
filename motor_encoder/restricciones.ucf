@@ -26,3 +26,8 @@ NET"leds(2)" LOC="P6";
 NET"leds(3)" LOC="P8";
 NET"leds(4)" LOC="P12";
 
+NET"puertos(1)" LOC="C10";
+NET"puertos(2)" LOC="A11";
+NET"puertos(3)" LOC="A13";
+NET"puertos(4)" LOC="B15";
+

@@ -10,7 +10,7 @@ ENTITY motor_encoder IS PORT(
 	Entradas : in STD_LOGIC_VECTOR (7 downto 4); -- to the lower row of connector JA
 	AN : out STD_LOGIC_VECTOR (3 downto 0); -- controls the display digits
 	SEG: out STD_LOGIC_VECTOR (6 downto 0); -- controls what digit to display
-	leds : OUT std_logic_vector (1 to 4); --leds testigos y salida al puerto para el motor, representa el encdedido de las bobinas
+	puertos,leds : OUT std_logic_vector (1 to 4); --leds testigos y salida al puerto para el motor, representa el encdedido de las bobinas
 	LED: out STD_LOGIC_VECTOR (1 downto 0)  -- Led indicates the direction the shaft (encoder)
 	);
 END motor_encoder;
@@ -36,6 +36,7 @@ A=>AO,
 B=>BO, 
 BTN=>Entradas(6), 
 EncOut=>EncO, 
+puertos => puertos,
 leds => leds,
 LED=>LED
 );
