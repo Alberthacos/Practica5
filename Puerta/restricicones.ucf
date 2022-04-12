@@ -1,0 +1,15 @@
+NET"Abrir" LOC="L1";
+NET"Cerrar" LOC="J1";
+NET"stop" LOC="J3";
+
+NET"LEDA" LOC="T4";
+NET"LEDC" LOC="N1";
+
+
+NET"motor_der" LOC="B15";
+NET"motor_izq" LOC="A13";
+
+
+NET"LS1" LOC="D3";
+NET"LS2" LOC="D5";
+
