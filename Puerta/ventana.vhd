@@ -55,7 +55,10 @@ if (Abrir='1' and cerrar='1') then motor_izq<='1'; motor_der<='1'; LEDA<='0'; LE
 --se presiona stop se detiene en cualquier punto
 else salida1<='0'; salida2<='0'; motor_der<='1'; motor_izq<='1'; LEDC<='0'; LEDA<='0';
 end if;
-	
+--variable del STOP
+-- if (abrir or cerrar)='1' and (salida1<='1 or salida2<='1) then  --si se presiona el boton opuesto a medio recorrido se detiene el proceso
+--salida1<='0'; salida2<='0'; motor_der<='1'; motor_izq<='1'; LEDC<='0'; LEDA<='0';
+--	end if;
 end process;
 
 end Behavioral;
