@@ -16,6 +16,8 @@ Port (
 	clk: in std_logic;
 	Abrir,Cerrar,stop: in std_logic;
 	LS1,LS2: in std_logic;
+	seg: out std_logic_vector(7 downto 0);
+	AN: out std_logic_vector(7 downto 0);
 	motor_izq,motor_der,LEDA,LEDC,rele: out std_logic:='0'
 	
 );
@@ -29,7 +31,7 @@ begin
 
 control: process(Abrir,cerrar,LS1,LS2)
 begin 
-if stop ='0' then 
+--if stop ='0' then 
 		--press abrir y LS2 press//enclave y primer LS no presionado (0)  COdigo basico
 	if ((Abrir='1' and LS2='1' and Cerrar='0') or (salida2='1' and LS1='0')) then  salida2<='1'; motor_izq<='0'; LEDA<='1'; rele<='0'; motor_der<='1';
 	else salida2<='0'; motor_izq<='1'; LEDA<='0'; 
@@ -37,11 +39,14 @@ if stop ='0' then
 	
 	if((cerrar='1' and LS1='1' and abrir='0') or (salida1='1' and LS2='0')) then salida1<='1'; motor_der<='0'; LEDC<='1'; rele<='0'; motor_izq<='1';
 	else salida1<='0'; motor_der<='1'; LEDC<='0';
-	end if;																								--Estas salidas 
+	end if;			--Estas salidas 
+--end if;
 																					--detienen el recorrido totalmente, es decir no se termina el ciclo 
 if (Abrir='1' and cerrar='1') then motor_izq<='1'; motor_der<='1'; LEDA<='0'; LEDA<='0'; salida1<='0'; salida2<='0'; 
-	else
-		--completar ciclo si esta a medio camino 
+ end if;
+
+--else
+----		completar ciclo si esta a medio camino 
 		if (LS1='0' and LS2='0') then 
 			if ((Abrir='1') or (salida2='1' and LS1='0')) then  salida2<='1'; motor_izq<='0'; LEDA<='1'; rele<='0'; motor_der<='1';
 			else salida2<='0'; motor_izq<='1'; LEDA<='0'; 
@@ -51,9 +56,14 @@ if (Abrir='1' and cerrar='1') then motor_izq<='1'; motor_der<='1'; LEDA<='0'; LE
 			else salida1<='0'; motor_der<='1'; LEDC<='0';
 			end if;
 		end if;
-	end if;
+--end if;
 --se presiona stop se detiene en cualquier punto
-else salida1<='0'; salida2<='0'; motor_der<='1'; motor_izq<='1'; LEDC<='0'; LEDA<='0';
+--
+--else salida1<='0'; salida2<='0'; motor_der<='1'; motor_izq<='1'; LEDC<='0'; LEDA<='0';
+--end if;
+
+if (salida1='1' or salida2='1') then Seg<="01110000"; AN<="11101111";
+else seg<="00110000"; AN<="01111111";
 end if;
 --variable del STOP
 -- if (abrir or cerrar)='1' and (salida1<='1 or salida2<='1) then  --si se presiona el boton opuesto a medio recorrido se detiene el proceso

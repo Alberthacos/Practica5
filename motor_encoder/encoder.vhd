@@ -18,9 +18,7 @@ Port (
     -- signals from the pmod
     A : in STD_LOGIC;
     B : in STD_LOGIC;
-    BTN : in STD_LOGIC;
     -- position of the shaft
-    EncOut: inout STD_LOGIC_VECTOR (4 downto 0);
     -- direction indicator
     LED: out STD_LOGIC_VECTOR (1 downto 0)
 );
@@ -41,45 +39,47 @@ begin
     limite<=15; --lmite de pasos (por 4)
 
 --clk and button
-clock: process (clk, BTN)
-begin
-    -- if the rotary button is pressed the count resets
-    if (BTN='1') then
-        curState <= idle;
-        EncOut <= "00000";
-    elsif (clk'event and clk = '1') then
-            -- detect if the shaft is rotated to right or left
-            -- right: add 1 to the position at each click
-            -- left: subtract 1 from the position at each click
-            if curState /= nextState then
-                if (curState = add) then
-                    if EncOut < "10011" then
-                        EncOut <= EncOut+1;
-                    else
-                        EncOut <= "00000";
-  
-                    end if;
-
-                elsif (curState = sub) then
-                    if EncOut > "00000" then
-                        EncOut <= EncOut-1;
-                    else
-                        EncOut <= "10011";
-                    end if;
-
-                else
-                    EncOut <= EncOut;
-                end if;
-
-            else
-                EncOut <= EncOut;
-            end if;
-        curState <= nextState;
-    end if;
-end process;
+--clock: process (clk, BTN)
+--begin
+--    -- if the rotary button is pressed the count resets
+--    if (BTN='1') then
+--        curState <= idle;
+--        EncOut <= "00000";
+--    elsif (clk'event and clk = '1') then
+--            -- detect if the shaft is rotated to right or left
+--            -- right: add 1 to the position at each click
+--            -- left: subtract 1 from the position at each click
+--            if curState /= nextState then
+--                if (curState = add) then
+--                    if EncOut < "10011" then
+--                        EncOut <= EncOut+1;
+--                    else
+--                        EncOut <= "00000";
+--  
+--                    end if;
+--
+--                elsif (curState = sub) then
+--                    if EncOut > "00000" then
+--                        EncOut <= EncOut-1;
+--                    else
+--                        EncOut <= "10011";
+--                    end if;
+--
+--                else
+--                    EncOut <= EncOut;
+--                end if;
+--
+--            else
+--                EncOut <= EncOut;
+--            end if;
+--        
+--    end if;
+--end process;
     -----FSM process
+
 next_state: process (curState, A, B)
 begin
+curState <= nextState;
 case curState is
 
     --detent position 
@@ -95,7 +95,7 @@ case curState is
 
     -- start of right cycle
     --R1
-    when R1 => conter<=3; conter<=1;
+    when R1 =>  conter<=1;
         LED<= "01";
         if B='1' then
             nextState <= idle;
@@ -106,7 +106,7 @@ case curState is
         end if;
 
     --R2
-    when R2 => conter<=3; conter <=1;
+    when R2 =>  conter <=1;
         LED<= "01";
         if A ='1' then
             nextState <= R1;
@@ -117,7 +117,7 @@ case curState is
         end if;
 
     --R3
-    when R3 => conter<=3; conter <=1;
+    when R3 =>  conter <=1;
             LED<= "01";
         if B ='0' then
             nextState <= R2;
@@ -127,13 +127,13 @@ case curState is
             nextState <= R3;
         end if;
 
-    when add => conter <=3; conter <=1;
+    when add =>  conter <=1;
         LED<= "01";
         nextState <= idle;
 
         -- start of left cycle
         --L1
-    when L1 => conter<=3; conter <=2;
+    when L1 =>  conter <=2;
             LED<= "10";
         if A ='1' then
             nextState <= idle;
@@ -144,7 +144,7 @@ case curState is
         end if;
     
         --L2
-    when L2 => conter<=3; conter <=2;
+    when L2 =>  conter <=2;
             LED<= "10";
         if B ='1' then
             nextState <= L1;
@@ -155,7 +155,7 @@ case curState is
         end if;
     
          --L3
-    when L3 => conter<=3; conter <=2;
+    when L3 =>  conter <=2;
         LED<= "10";
         if A ='0' then
             nextState <= L2;
@@ -165,7 +165,7 @@ case curState is
             nextState <= L3;
         end if;
 
-    when sub => conter <=3; conter <=2;
+    when sub =>  conter <=2;
         LED<= "10";
         nextState <= idle;
 

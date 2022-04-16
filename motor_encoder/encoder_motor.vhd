@@ -7,9 +7,7 @@ use ieee.std_logic_unsigned.all;
 ENTITY motor_encoder IS PORT(
 
 	CLK: in STD_LOGIC; -- reloj de 50MHz para la amiba2
-	Entradas : in STD_LOGIC_VECTOR (7 downto 4); -- to the lower row of connector JA
-	AN : out STD_LOGIC_VECTOR (3 downto 0); -- controls the display digits
-	SEG: out STD_LOGIC_VECTOR (6 downto 0); -- controls what digit to display
+	Entradas : in STD_LOGIC_VECTOR (5 downto 4); -- to the lower row of connector JA
 	puertos,leds : OUT std_logic_vector (1 to 4); --leds testigos y salida al puerto para el motor, representa el encdedido de las bobinas
 	LED: out STD_LOGIC_VECTOR (1 downto 0)  -- Led indicates the direction the shaft (encoder)
 	);
@@ -34,25 +32,14 @@ port map (
 clk=>clk, 
 A=>AO, 
 B=>BO, 
-BTN=>Entradas(6), 
-EncOut=>EncO, 
 puertos => puertos,
 leds => leds,
 LED=>LED
 );
 
-C2: entity work.DisplayController
-port map (
-clk=>clk, 
-SWT=>Entradas(7), 
-DispVal=>EncO, 
-anode=>an, 
-segOut=>seg );
 
---C4: entity work.MotorPAP
---port map(
---CLK  => CLK,
---leds => leds,
---puerto => puerto
---);
+--SWT=>Entradas(7), 
+--DispVal=>EncO, 
+
+
 end Behavioral;
