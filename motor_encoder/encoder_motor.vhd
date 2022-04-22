@@ -1,4 +1,4 @@
---c�digo para controlar los pasos de un motor PAP a trav�s de un encoder mecanico
+--codigo para controlar los pasos de un motor PAP a traves de un encoder mecanico
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
@@ -7,7 +7,7 @@ use ieee.std_logic_unsigned.all;
 ENTITY motor_encoder IS PORT(
 
 	CLK: in STD_LOGIC; -- reloj de 50MHz para la amiba2
-	Entradas : in STD_LOGIC_VECTOR (5 downto 4); -- to the lower row of connector JA
+	Entradas : in STD_LOGIC_VECTOR (5 downto 4); -- Primeras dos entradas de amiba 2
 	puertos,leds : OUT std_logic_vector (1 to 4); --leds testigos y salida al puerto para el motor, representa el encdedido de las bobinas
 	LED: out STD_LOGIC_VECTOR (1 downto 0)  -- Led indicates the direction the shaft (encoder)
 	);
@@ -36,10 +36,4 @@ puertos => puertos,
 leds => leds,
 LED=>LED
 );
-
-
---SWT=>Entradas(7), 
---DispVal=>EncO, 
-
-
 end Behavioral;

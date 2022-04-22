@@ -5,13 +5,13 @@ NET"stop" LOC="J3";
 NET"LEDA" LOC="T4";
 NET"LEDC" LOC="N1";
 
+#MOTOR B15,A13 //LEDS 
+NET"motor_der" LOC="N1";
+NET"motor_izq" LOC="R2";
 
-NET"motor_der" LOC="B15";
-NET"motor_izq" LOC="A13";
 
-
-NET"LS1" LOC="D3";
-NET"LS2" LOC="D5";
+NET"LS1" LOC="M1";
+NET"LS2" LOC="P2";
 
 
 NET"SEG(7)" LOC="P16";

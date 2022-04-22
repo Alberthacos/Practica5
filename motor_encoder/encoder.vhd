@@ -36,46 +36,7 @@ signal sw1,sw2: std_logic_vector(3 downto 0):="0000";
 signal sd1,sd2: std_logic:='0';
 signal limite: integer:=15;
 begin
-    limite<=15; --lmite de pasos (por 4)
-
---clk and button
---clock: process (clk, BTN)
---begin
---    -- if the rotary button is pressed the count resets
---    if (BTN='1') then
---        curState <= idle;
---        EncOut <= "00000";
---    elsif (clk'event and clk = '1') then
---            -- detect if the shaft is rotated to right or left
---            -- right: add 1 to the position at each click
---            -- left: subtract 1 from the position at each click
---            if curState /= nextState then
---                if (curState = add) then
---                    if EncOut < "10011" then
---                        EncOut <= EncOut+1;
---                    else
---                        EncOut <= "00000";
---  
---                    end if;
---
---                elsif (curState = sub) then
---                    if EncOut > "00000" then
---                        EncOut <= EncOut-1;
---                    else
---                        EncOut <= "10011";
---                    end if;
---
---                else
---                    EncOut <= EncOut;
---                end if;
---
---            else
---                EncOut <= EncOut;
---            end if;
---        
---    end if;
---end process;
-    -----FSM process
+   limite<=15; --lmite de pasos (por 4)
 
 next_state: process (curState, A, B)
 begin
